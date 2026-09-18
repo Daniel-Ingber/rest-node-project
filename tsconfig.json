@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Target & Environment */
+    "target": "ES2023" /* Node 24 natively supports all ES2023+ features */,
+    "module": "NodeNext" /* Matches Node.js modern module system */,
+    "moduleResolution": "NodeNext" /* Essential for proper module lookups */,
+
+    /* Interop & Emitting */
+    "outDir": "./dist" /* Where your compiled JavaScript files will go */,
+    "rootDir": "./src" /* Source files folder */,
+    "esModuleInterop": true /* Simplifies importing CommonJS packages */,
+    "forceConsistentCasingInFileNames": true /* Ensures case-sensitivity checks */,
+    "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true,
+
+    /* Type Checking Rules */
+    "strict": false /* Enables all strict type-checking options */,
+    "skipLibCheck": true /* Speeds up compilation by skipping declaration files */
+  },
+  "include": ["src/**/*"] /* Compiles all files inside the src folder */,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] /* Ignores dependencies and build folders */
+}

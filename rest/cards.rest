@@ -1,0 +1,82 @@
+@host = http://localhost:3000/api/v1
+@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYjBlM2FjMDRiNzA0ZDdjM2RjNmYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJleHAiOjE3ODk3NzU1MjMsImlhdCI6MTc4OTc2ODMyM30.exUn2dWyW9HAt4ngW1Nygz1NI58LnnK0AQcy2TwZEmg
+@cardId = 6aadb2a1ac04b704d7c3dc7f
+
+### Create new Card - business user only
+POST {{host}}/cards
+Authorization: bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "card",
+    "subtitle": "subtitle",
+    "description": "desc",
+    "web": "https://google.com",
+    "address":{
+        "street": "test",
+        "city": "test",
+        "country": "test",
+        "state": "test",
+        "houseNumber": 1111,
+        "zip": "1234522"
+    },
+    "image":{
+        "alt": "user-profile",
+        "url": "https://picsum.photos/200/300"
+    },
+    "phone": "0524720544",
+    "email": "user221@user221.com"
+}
+
+### Get all cards
+GET {{host}}/cards
+
+### Get my cards
+GET {{host}}/cards/my-cards
+Authorization: bearer {{token}}
+
+### Get specific card
+GET {{host}}/cards/{{cardId}}
+
+### Edit card - the user who created the card
+PUT {{host}}/cards/{{cardId}}
+Authorization: bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "an edited card",
+    "subtitle": "subtitle",
+    "description": "desc",
+    "web": "https://google.com",
+    "address":{
+        "street": "test",
+        "city": "test",
+        "country": "test",
+        "state": "test",
+        "houseNumber": 1111,
+        "zip": "1234522"
+    },
+    "image":{
+        "alt": "user-profile",
+        "url": "https://picsum.photos/200/300"
+    },
+    "phone": "0524720544",
+    "email": "user221@user221.com"
+}
+
+### Like card - any registered user, a second call removes the like
+PATCH {{host}}/cards/{{cardId}}
+Authorization: bearer {{token}}
+
+### Change the business number of a card - admin only
+PATCH {{host}}/cards/{{cardId}}/biz-number
+Authorization: bearer {{token}}
+Content-Type: application/json
+
+{
+    "bizNumber": 7654321
+}
+
+### Delete card - the user who created the card or an admin
+DELETE {{host}}/cards/{{cardId}}
+Authorization: bearer {{token}}

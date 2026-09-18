@@ -1,0 +1,93 @@
+@host = http://localhost:3000/api/v1
+@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYWZmOWI1NjY4YmQxNTA2MWUzYWYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiZXhwIjoxNzg5Nzc0OTEwLCJpYXQiOjE3ODk3Njc3MTB9.IxESzC9oi-uglYYPAO8ZFhhzunOqPifBb8vEbHnXn48
+@userId = 6aadaff9b5668bd15061e3af
+
+### Create/ Add new user
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "name":{
+        "first": "A1",
+        "middle": "",
+        "last": "A1"
+    },
+    "address":{
+        "street": "test1",
+        "city": "test1",
+        "country": "test1",
+        "state": "test1",
+        "houseNumber": 10,
+        "zip": "12345"
+    },
+    "image":{
+        "alt": "user-profile",
+        "url": "https://picsum.photos/200/300"
+    },
+    "phone": "0524720544",
+    "email": "a123@a123.com",
+    "isBusiness": true,
+    "password": "Aa123456!"
+}
+
+### Login user - business user of the initial data
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+    "email": "user2@user2.com",
+    "password": "Aa123456!"
+}
+
+### Login user - admin of the initial data
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+    "email": "user3@user3.com",
+    "password": "Aa123456!"
+}
+
+### Get All Users - admin only
+GET {{host}}/users
+Authorization: bearer {{token}}
+
+### Get user - the user itself or an admin
+GET {{host}}/users/{{userId}}
+Authorization: bearer {{token}}
+
+### Update user - the whole user is sent again, without the password
+PUT {{host}}/users/{{userId}}
+Authorization: bearer {{token}}
+Content-Type: application/json
+
+{
+    "name":{
+        "first": "Ploni",
+        "middle": "",
+        "last": "Almoni"
+    },
+    "address":{
+        "street": "test1",
+        "city": "test1",
+        "country": "test1",
+        "state": "test1",
+        "houseNumber": 10,
+        "zip": "12345"
+    },
+    "image":{
+        "alt": "user-profile",
+        "url": "https://picsum.photos/200/300"
+    },
+    "phone": "0524720544",
+    "email": "user1@user1.com",
+    "isBusiness": false
+}
+
+### Change the isBusiness status of the user
+PATCH {{host}}/users/{{userId}}
+Authorization: bearer {{token}}
+
+### Delete user
+DELETE {{host}}/users/{{userId}}
+Authorization: bearer {{token}}
