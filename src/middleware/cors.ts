@@ -1,10 +1,11 @@
 import corsMiddleware, { type CorsOptions } from "cors";
 import { HttpError } from "../error/custom-error.ts";
+import env from "../config/index.ts";
 
 const allowedOrigins = [
-  "https://exmple.com",
-  "http://localhost:5137",
-  // ...
+  env.CLIENT_URL,
+  "http://localhost:5173",
+  // Vite
 ];
 
 const corsOptions: CorsOptions = {

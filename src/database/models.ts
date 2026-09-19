@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { type DBUser, type IUserModel, userDBSchema } from "./schemas/user.ts";
 import { cardDBSchema } from "./schemas/card.ts";
 import authService from "../services/auth-service.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 // Method For Document
 // this equals to the Document instance

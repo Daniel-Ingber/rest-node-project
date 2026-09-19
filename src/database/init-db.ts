@@ -1,5 +1,5 @@
 import env from "../config/index.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 import authService from "../services/auth-service.ts";
 import cardService from "../services/card-service.ts";
 import { InitialUsers } from "./initial-users.ts";

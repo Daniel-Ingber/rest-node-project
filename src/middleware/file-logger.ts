@@ -4,18 +4,12 @@ import { STATUS_CODES } from "node:http";
 import { appendFile, mkdir } from "node:fs/promises";
 import { type ErrorRequestHandler, type RequestHandler } from "express";
 import { ZodError } from "zod/v4";
-import { logger } from "../logs/logger.ts";
+import { logger } from "./logger.ts";
 
-/** Bonus - every answer with a status code of 400 and above is written
- * into a file inside the logs folder, named after the date of that day
- * */
 const LOGS_DIR = path.join(import.meta.dirname, "..", "..", "logs");
 const FAILED_STATUS_CODE = 400;
 const MAX_MESSAGE_LENGTH = 300;
 
-/** Every failure is written on one line, so a long message is cut and a
- * validation error is written as the list of the fields that it failed on
- * */
 const messageOf = (error: Error | undefined, status: number) => {
   if (error instanceof ZodError) {
     const fields = error.issues.map((issue) => issue.path.join(".") || "body");

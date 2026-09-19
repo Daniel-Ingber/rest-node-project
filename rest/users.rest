@@ -1,6 +1,6 @@
-@host = http://localhost:3000/api/v1
-@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYWZmOWI1NjY4YmQxNTA2MWUzYWYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiZXhwIjoxNzg5Nzc0OTEwLCJpYXQiOjE3ODk3Njc3MTB9.IxESzC9oi-uglYYPAO8ZFhhzunOqPifBb8vEbHnXn48
-@userId = 6aadaff9b5668bd15061e3af
+@host = http://localhost:80/api/v1
+@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYWJkZjgxZjJkMWQ1NTk3OTE3Y2EiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJleHAiOjE3ODk4MzU1ODUsImlhdCI6MTc4OTgyODM4NX0.ECIsTPqJsPyCXEqLf9zbve72b9-TMzWHe8Cw_er8Vrk
+@userId = 6aae9d300340e7f8113153ee
 
 ### Create/ Add new user
 POST {{host}}/users
@@ -27,6 +27,15 @@ Content-Type: application/json
     "phone": "0524720544",
     "email": "a123@a123.com",
     "isBusiness": true,
+    "password": "Aa123456!"
+}
+
+### Login user - created User
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+    "email": "a123@a123.com",
     "password": "Aa123456!"
 }
 
@@ -80,7 +89,7 @@ Content-Type: application/json
         "url": "https://picsum.photos/200/300"
     },
     "phone": "0524720544",
-    "email": "user1@user1.com",
+    "email": "a123@a123.com",
     "isBusiness": false
 }
 

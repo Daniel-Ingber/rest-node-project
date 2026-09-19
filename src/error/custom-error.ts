@@ -1,7 +1,4 @@
 export class HttpError extends Error {
-  /**
-   *
-   */
   constructor(
     message: string = "Internal Server Error",
     statusCode: number = 500,
@@ -15,9 +12,6 @@ export class HttpError extends Error {
 }
 
 export class NotFoundError extends HttpError {
-  /**
-   *
-   */
   constructor(message: string = "Not Found") {
     super(message, 404);
     this.name = "NotFoundError";

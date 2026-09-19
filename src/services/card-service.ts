@@ -1,6 +1,6 @@
 import { type Card as CardRequest } from "../validations/card.ts";
 import { CardModel } from "../database/models.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 import { HttpError, NotFoundError } from "../error/custom-error.ts";
 
 /** Every business number in the application is a 7 digits number */
@@ -90,9 +90,8 @@ const cardService = {
     logger.info(`[toggleLike]: The card is now ${isLiked ? "un" : ""}liked`);
     return savedCard;
   },
-  /** Bonus - the admin may give a card any business number
-   * that is not taken by another card
-   * */
+
+  // Bonus #1
   changeBizNumber: async (cardId: string, bizNumber: number) => {
     const cardWithSameNumber = await CardModel.findOne({ bizNumber });
     if (cardWithSameNumber) {

@@ -1,5 +1,5 @@
 import z from "zod/v4";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 const envSchema = z.object({
   DB_CONNECTION_STRING: z.string().min(1, "DB_CONNECTION_STRING Is Required"),

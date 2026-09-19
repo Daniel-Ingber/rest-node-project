@@ -1,6 +1,6 @@
-@host = http://localhost:3000/api/v1
-@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYjBlM2FjMDRiNzA0ZDdjM2RjNmYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJleHAiOjE3ODk3NzU1MjMsImlhdCI6MTc4OTc2ODMyM30.exUn2dWyW9HAt4ngW1Nygz1NI58LnnK0AQcy2TwZEmg
-@cardId = 6aadb2a1ac04b704d7c3dc7f
+@host = http://localhost:80/api/v1
+@token = eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2YWFkYWJkZjgxZjJkMWQ1NTk3OTE3Y2EiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJleHAiOjE3ODk4MzU1ODUsImlhdCI6MTc4OTgyODM4NX0.ECIsTPqJsPyCXEqLf9zbve72b9-TMzWHe8Cw_er8Vrk
+@cardId = 6aae9db10340e7f8113153ff
 
 ### Create new Card - business user only
 POST {{host}}/cards

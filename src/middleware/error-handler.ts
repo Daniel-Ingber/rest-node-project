@@ -3,14 +3,25 @@ import { MongoServerError } from "mongodb";
 import mongoose from "mongoose";
 import { ZodError } from "zod/v4";
 import env from "../config/index.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "./logger.ts";
 
 const validationErrorNames = [
   "JOSEError",
-  "JWKInvalid",
+  "JOSENotSupported",
+  "JWEDecryptionFailed",
   "JWEInvalid",
+  "JWEKeyManagementFailed",
+  "JWEMultiError",
+  "JWKInvalid",
+  "JWKSInvalid",
+  "JWKSMultipleMatchingKeys",
+  "JWKSNoMatchingKey",
+  "JWKSTimeout",
   "JWSInvalid",
-  //... and more
+  "JWSSignatureVerificationFailed",
+  "JWTClaimValidationFailed",
+  "JWTExpired",
+  "JWTInvalid",
 ];
 
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {

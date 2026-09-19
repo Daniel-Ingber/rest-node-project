@@ -3,7 +3,7 @@ import { UserModel } from "../database/models.ts";
 import { HttpError, NotFoundError } from "../error/custom-error.ts";
 import { type IUserDocument } from "../database/schemas/user.ts";
 import authService from "./auth-service.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 /** Bonus - a user that fails to login three times in a row
  * cannot login again for the next 24 hours
